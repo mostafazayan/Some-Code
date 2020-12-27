@@ -1,0 +1,158 @@
+.contain {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .header {
+        padding: 15px 10px 10px 10px!important;
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        .add-product {
+            margin-top: -6px;
+            color: #3498db;
+            mat-icon {
+                line-height: 31px !important;
+                font-size: 31px !important;
+            }
+        }
+    }
+    .sec-header,
+    .header {
+        width: 98%;
+        background-color: white;
+        box-shadow: 0 3px 8px grey;
+        padding: 25px;
+        border-radius: 8px;
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        border-top: 10px solid #3498db;
+        p {
+            font-size: 25px;
+        }
+        .head {
+            display: flex;
+            align-items: center;
+        }
+        .filters {
+            display: flex;
+            width: 45%;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            .input {
+                width: 300px;
+                margin-top: 15px;
+            }
+            .search-btn {
+                height: 50px;
+                width: 100px;
+                color: white;
+                background-color: #3498db;
+            }
+            .icon-btn {
+                color: #3498db !important;
+            }
+        }
+    }
+    .body {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin-top: 20px;
+        table {
+            background-color: white !important;
+            color: white !important;
+            width: 98%;
+            th,
+            td {
+                text-align: center;
+                background-color: #ffffff !important;
+                color: rgb(0, 0, 0) !important;
+                border-bottom: 1px solid rgb(223, 223, 223) !important;
+                img {
+                    vertical-align: middle;
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                }
+            }
+            th {
+                background-color: #3498db !important;
+                color: white !important;
+            }
+            .action-btn {
+                color: #3498db;
+            }
+        }
+    }
+}
+
+.mat-form-field-appearance-outline {
+    color: #000000 !important;
+    width: 100%;
+}
+
+
+/* input color class */
+
+.mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    color: #3498db !important;
+}
+
+
+/* Change label color on focused */
+
+.mat-focused .mat-form-field-underline .mat-form-field-ripple {
+    background-color: #3498db !important;
+}
+
+.mat-form-field.mat-focused .mat-form-field-label {
+    color: #3498db !important;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline-thick {
+    opacity: 1;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline {
+    color: #3498db;
+}
+
+.mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label,
+.mat-form-field-appearance-outline.mat-form-field-can-float .mat-input-server:focus+.mat-form-field-label-wrapper .mat-form-field-label {
+    color: #3498db;
+}
+
+.mat-form-field-label {
+    color: #3498db;
+}
+
+.mat-dialog-container {
+    background-color: white;
+}
+
+.mat-progress-bar {
+    display: block;
+    height: 10px;
+    overflow: hidden;
+    position: relative;
+    transition: opacity 250ms linear;
+    border-radius: 5px;
+    width: 98% !important;
+}
+
+.mat-progress-bar-buffer {
+    background-color: #1f1f1f;
+}
+
+.mat-progress-bar-fill::after {
+    background-color: #3498DB;
+    border-radius: 5px;
+}
+
+.mat-paginator {
+    width: 98%;
+    background-color: #3498db;
+}

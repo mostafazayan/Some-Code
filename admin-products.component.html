@@ -1,0 +1,86 @@
+<app-admin-layout>
+    <div class="contain">
+        <div class="header">
+            <p>Products List</p>
+            <button class="add-product" (click)="onAddProduct()" mat-icon-button aria-label="Example icon button with a home icon">
+        <mat-icon>add_circle</mat-icon>
+      </button>
+        </div>
+        <div class="sec-header">
+            <div class="head">
+                <button (click)="isFilterOpen = !isFilterOpen" class="toggle-btn" mat-icon-button>
+          <mat-icon>filter_list </mat-icon>
+        </button>
+                <p>Filters</p>
+            </div>
+            <div class="filters" *ngIf="isFilterOpen">
+                <mat-form-field class="input" appearance="outline">
+                    <mat-label>Product</mat-label>
+                    <input matInput type="text" [(ngModel)]="filterTerm" />
+                    <mat-icon matSuffix>search</mat-icon>
+                </mat-form-field>
+                <button class="search-btn" (click)="onClear()" mat-button>Clear</button>
+            </div>
+        </div>
+        <div class="body">
+            <mat-progress-bar *ngIf="isLoading" mode="indeterminate"></mat-progress-bar>
+            <table mat-table *ngIf="products$ | async | filter: filterTerm as products" [dataSource]="this.products" class="mat-elevation-z8">
+                <!-- Position Column -->
+                <ng-container matColumnDef="id">
+                    <th mat-header-cell *matHeaderCellDef>Index</th>
+                    <td mat-cell *matCellDef="let i = index">{{ i + 1 }}</td>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef>Name</th>
+                    <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="image">
+                    <th mat-header-cell *matHeaderCellDef>Image</th>
+                    <td mat-cell *matCellDef="let element">
+                        <img src="./../../../../assets/default-image-620x600.jpg" alt="" />
+                    </td>
+                </ng-container>
+
+                <!-- Weight Column -->
+                <ng-container matColumnDef="price">
+                    <th mat-header-cell *matHeaderCellDef>Price</th>
+                    <td mat-cell *matCellDef="let element">{{ element.price }} EGP</td>
+                </ng-container>
+
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="quantity">
+                    <th mat-header-cell *matHeaderCellDef>Quantity</th>
+                    <td mat-cell *matCellDef="let element">{{ element.quantity }}</td>
+                </ng-container>
+                <ng-container matColumnDef="category">
+                    <th mat-header-cell *matHeaderCellDef>Category</th>
+                    <td mat-cell *matCellDef="let element">{{ element.category }}</td>
+                </ng-container>
+                <ng-container matColumnDef="unit">
+                    <th mat-header-cell *matHeaderCellDef>Unit</th>
+                    <td mat-cell *matCellDef="let element">{{ element.unit }}</td>
+                </ng-container>
+                <ng-container matColumnDef="actions">
+                    <th mat-header-cell *matHeaderCellDef>Actions</th>
+                    <td mat-cell *matCellDef="let element">
+                        <button class="action-btn" mat-icon-button (click)="onEditProduct(element.id)">
+              <mat-icon>edit</mat-icon>
+            </button>
+                        <button (click)="onDeleteProduct(element.id)" class="action-btn" mat-icon-button>
+              <mat-icon>delete</mat-icon>
+            </button>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+            </table>
+            <mat-paginator [length]="products ? products.length : 0" [pageSize]="2" [pageSizeOptions]="[2, 10, 25, 100]">
+            </mat-paginator>
+        </div>
+    </div>
+</app-admin-layout>
